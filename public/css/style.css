@@ -1,73 +1,179 @@
 body {
-    padding: 0;
-    margin: 0;
-    background-color: #acd9eb;
+  padding: 0;
+  margin: 0;
+  background-image: linear-gradient(40deg,black, gray );
+}
+
+form {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 15px;
+  background-color: hsl(0, 0%, 10%);
+  max-width: 500px;
+  margin-left: 33%;
+  text-align: center;
+  margin-top: 6.75%;
+  border-radius: 3%;
+  height: 470px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #dddddd;
+  text-shadow: 5px 5px 5px black;
+}
+
+input,
+textarea {
+  width: 200px;
+  padding: 10px;
+  color: black;
+  margin-left: 20px;
+  margin-top: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px solid;
+}
+
+input:hover,
+textarea:hover,
+input:focus,
+textarea:focus {
+  border-color: #aaaad5;
+  -webkit-box-shadow: 5px 0px 9px #f9f9f9;
+  box-shadow: 5px 0px 9px #f9f9f9;
+  background-color: #f9f9f9;
+  color: black;
+  font-weight: bold;
+}
+
+.enviar {
+  background-color: #ffffff;
+  height: 40px;
+  width: 100px;
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px solid;
+  color: black;
+}
+
+textarea {
+  width: 350px;
+  height: 120px;
+  line-height: 20px;
+  max-width: 350px;
+}
+
+form label {
+  margin-left: 20px;
+  color: #f9f9f9;
+  font-weight: bold;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #23232e;
+  height: 8vh;
+}
+
+main {
+  background: url("bg.jpg") no-repeat center center;
+  background-size: cover;
+  height: 92vh;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+@media (max-width: 999px) {
+  body {
+    overflow-x: hidden;
   }
-  
-  form {
-    font-family: Verdana, Tahoma, sans-serif;
-    font-size: 15px;
-    background-color: #7ba0e6;
-    max-width: 500px;
-    margin-left: 33%;
-    text-align: center;
-    margin-top: 6.75%;
-    border-radius: 3%;
-    height: 470px;
+  .nav-list {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 50vw;
+    height: 92vh;
+    background: #23232e;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
   }
-  
-  h1 {
-    margin-bottom: 20px;
-    margin-left: 20px;
-    color: #ffffff;
-    text-shadow: 5px 5px 5px black;
+  .nav-list li {
+    margin-left: 0;
+    opacity: 0;
   }
-  
-  input,
-  textarea {
-    width: 200px;
-    padding: 10px;
-    color: black;
-    margin-left: 20px;
-    margin-top: 10px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border: 1px solid;
+  .mobile-menu {
+    display: block;
   }
-  
-  input:hover,
-  textarea:hover,
-  input:focus,
-  textarea:focus {
-    border-color: #aaaad5;
-    -webkit-box-shadow: 5px 0px 9px #f9f9f9;
-            box-shadow: 5px 0px 9px #f9f9f9;
-    background-color: #f9f9f9;
-    color: black;
-    font-weight: bold;
+}
+
+.nav-list.active {
+  transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
   }
-  
-  .enviar {
-    background-color: #843bbc;
-    height: 40px;
-    width: 100px;
-    font-weight: bold;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border: 1px solid;
-    color: black;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  textarea {
-    width: 400px;
-    height: 120px;
-    line-height: 20px;
-    max-width: 400px;
-  }
-  
-  form label {
-    margin-left: 20px;
-    color: #f9f9f9;
-    font-weight: bold;
-  }
+}
+
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
